@@ -1,3 +1,70 @@
 body {
   font-family: "Proxima Nova";
 }
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1400px;
+  @include  breakpoint-up(xxl) {
+    width: 1600px;
+  }
+}
+
+$primary: #FFD334;
+
+%space-top {
+  margin-top: 150px;
+}
+
+%headline {
+  font-size: 60px;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  font-weight: 300;
+  margin-bottom: 130px;
+  &:after {
+    content: '';
+    width: 250px;
+    height: 4px;
+    position: absolute;
+    background-color: $primary;
+    left: 0;
+    right: 0;
+    bottom: -80px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  em {
+    font-size: 150px;
+    font-family: 'suave-script-pro';
+    color: #DBDBDB;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+}
+
+%text {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 200;
+}
+
+.headline {
+  &-title {
+    @extend%headline !optional;
+  }
+  &-description{
+    @extend%text !optional;
+    text-align: center;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

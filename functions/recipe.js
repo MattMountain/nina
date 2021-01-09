@@ -1,5 +1,7 @@
-export function getRecipeTypes(data)
+export function getRecipes(data)
 {
-    const idx = data.findIndex( (node) => node.node.id === 'dGVybToy');
+    console.log(data)
+    const idx = data.findIndex( (node) => node.node.id === 'dGVybToy' );
     return data[idx];
+    // return data;
 }

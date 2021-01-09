@@ -1,10 +1,23 @@
+import RecipeType from "./recipeType";
+import { addThumbnails } from "../lib/thumbnails";
+import Headline from "./headline";
+
 export default function RecipeTypes (data) {
-    const node = data.data.node
-    console.log(node.children.edges.length)
+
+    let children = data.data.categories.node.children.edges
+    children = addThumbnails(children, data.data.thumbnails)
+    const headline = { title: data.data.categories.node.name, description: data.data.categories.node.description }
 
     return (
-        <section>
-            <h2>{node.name}</h2>
+        <section className="container recipe-types">
+            <Headline data={ headline }></Headline>
+            <article className="recipe-types-more">
+                { Object.keys(children).length > 0 ? (
+                    Object.keys(children).map((key) =>
+                        <RecipeType data={ children[key] }></RecipeType>
+                    )
+                ) : (<span>No Categorie </span>) }
+            </article>
         </section>
     )
 }
