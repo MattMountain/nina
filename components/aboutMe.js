@@ -1,9 +1,11 @@
 import Headline from "./headline";
+
 export default function AboutMe(data)
 {
     const description = data.data.categories.edges[0].node.description
     const headline = { title: data.data.title, description: description }
     const aboutMe = data.data.aboutMe
+
     return (
         <section className='container about-me'>
             <Headline data={ headline }></Headline>

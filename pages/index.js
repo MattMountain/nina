@@ -2,18 +2,20 @@ import Head from 'next/head'
 import RecipeTypes from "../components/recipeTypes";
 import Hero from "../components/hero";
 import AboutMe from "../components/aboutMe";
+import FoodBlog from "../components/foodBlog";
 
 import styles from '../styles/Home.module.css'
 
-import { getCategories } from "../lib/categories";
+import { getCategories, categoryByName } from "../lib/categories";
 import { getHero } from "../lib/hero";
+import { postsByName } from "../lib/posts";
+
 import { getRecipes } from "../functions/recipe";
 import { filterThumbnails } from "../functions/thumbnails";
-
 import { getAbout } from "../functions/about-me";
 
-export default function Home({ categories, hero, about }) {
-    console.log(about)
+export default function Home({ categories, hero, about, foodBlog }) {
+    console.log(foodBlog)
 
   return (
     <div>
@@ -23,11 +25,13 @@ export default function Home({ categories, hero, about }) {
       </Head>
 
       <main>
-          <Hero data={hero}></Hero>
+          <Hero data={ hero }></Hero>
 
-          <RecipeTypes data={categories} ></RecipeTypes>
+          <RecipeTypes data={ categories } ></RecipeTypes>
 
-          <AboutMe data={about}></AboutMe>
+          <AboutMe data={ about }></AboutMe>
+
+          <FoodBlog data={ foodBlog }></FoodBlog>
       </main>
 
       <footer className={styles.footer}>
@@ -45,6 +49,9 @@ export async function getStaticProps({ preview = false })
 
     const aboutMe = await getAbout()
 
+    const foodBlog = await postsByName('Food Blog')
+    const foodBlogTitle = await categoryByName('Food Blog')
+
     const hero = await getHero(preview)
 
     return {
@@ -52,6 +59,7 @@ export async function getStaticProps({ preview = false })
             categories: { categories: categories, thumbnails: categoriesThumbnails },
             hero: hero.hero,
             about: aboutMe,
+            foodBlog: { content: foodBlog, title: foodBlogTitle },
         },
     }
 }

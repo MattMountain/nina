@@ -68,3 +68,14 @@ $primary: #FFD334;
     margin-left: auto;
   }
 }
+.headline-small {
+  @extend%headline !optional;
+  font-size: 40px;
+  em {
+    font-size: 80px;
+    top: -5px;
+  }
+  &:after {
+    bottom: -40px;
+  }
+}
