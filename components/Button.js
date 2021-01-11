@@ -2,7 +2,7 @@ export default function Button (data)
 {
     const link = data.data
     let button
-    console.log(link)
+
     switch (link.type) {
         case 'page':
             button = <a className='button-item' href={ link.link }>{ link.title }</a>

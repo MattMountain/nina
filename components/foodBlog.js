@@ -27,7 +27,7 @@ export default function FoodBlog (data)
     )
 }
 
-function reduceContent (content, level)
+export function reduceContent (content, level)
 {
     while (content.length > level)
     {

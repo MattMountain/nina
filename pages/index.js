@@ -3,6 +3,7 @@ import RecipeTypes from "../components/recipeTypes";
 import Hero from "../components/hero";
 import AboutMe from "../components/aboutMe";
 import FoodBlog from "../components/foodBlog";
+import LastVideos from "../components/lastVideos"
 
 import styles from '../styles/Home.module.css'
 
@@ -14,8 +15,8 @@ import { getRecipes } from "../functions/recipe";
 import { filterThumbnails } from "../functions/thumbnails";
 import { getAbout } from "../functions/about-me";
 
-export default function Home({ categories, hero, about, foodBlog }) {
-    console.log(foodBlog)
+export default function Home({ categories, hero, about, foodBlog, lastVideo }) {
+    console.log( lastVideo )
 
   return (
     <div>
@@ -32,6 +33,8 @@ export default function Home({ categories, hero, about, foodBlog }) {
           <AboutMe data={ about }></AboutMe>
 
           <FoodBlog data={ foodBlog }></FoodBlog>
+
+          <LastVideos data={ lastVideo }></LastVideos>
       </main>
 
       <footer className={styles.footer}>
@@ -52,6 +55,9 @@ export async function getStaticProps({ preview = false })
     const foodBlog = await postsByName('Food Blog')
     const foodBlogTitle = await categoryByName('Food Blog')
 
+    const lastVideo = await postsByName('Last Videos')
+    const lastVideoTitle = await categoryByName('Last Videos')
+
     const hero = await getHero(preview)
 
     return {
@@ -60,6 +66,7 @@ export async function getStaticProps({ preview = false })
             hero: hero.hero,
             about: aboutMe,
             foodBlog: { content: foodBlog, title: foodBlogTitle },
+            lastVideo: { content: lastVideo, title: lastVideoTitle}
         },
     }
 }
