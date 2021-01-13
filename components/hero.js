@@ -14,7 +14,7 @@ export default function Hero (data)
             </article>
             <img
                 className="hero-image"
-                src={image.mediaItemUrl}
+                src='https://matthiasriedl.com/Images/Gamsknogel_Gipfel.png'
                 alt={image.altText}
             />
             <SocialMedia data={ socialMedia }></SocialMedia>
