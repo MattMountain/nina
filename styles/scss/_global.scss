@@ -118,12 +118,35 @@ $primary: #FFD334;
 }
 .headline-small {
   @extend%headline !optional;
-  font-size: 40px;
+  font-size: 25px;
+  margin-bottom: 50px;
+  @include breakpoint-up(md) {
+    font-size: 30px;
+  }
+  @include breakpoint-up(xl) {
+    margin-bottom: 100px;
+    font-size: 40px;
+  }
   em {
-    font-size: 80px;
-    top: -5px;
+    font-size: 50px;
+    top: 0;
+    display: none;
+    visibility: hidden;
+    @include  breakpoint-up(md) {
+      display: block;
+      visibility: visible;
+    }
+    @include breakpoint-up(xl) {
+      top: -5px;
+      font-size: 80px;
+    }
   }
   &:after {
-    bottom: -40px;
+    bottom: -20px;
+    width: 150px;
+    @include breakpoint-up(xl) {
+      bottom: -40px;
+      width: 250px;
+    }
   }
 }

@@ -2,37 +2,58 @@
   @extend%space-top !optional;
   background-color: #040326;
   color: white;
-  padding: 100px;
-  margin-bottom: 150px;
+  padding: 75px;
+  margin-bottom: 100px;
+  @include breakpoint-up(lg) {
+    margin-bottom: 150px;
+    padding: 100px;
+  }
   &-title {
     position: relative;
     &-main {
       text-align: center;
       text-transform: uppercase;
-      font-size: 60px;
+      font-size: 20px;
       font-weight: 600;
       margin-top: unset;
       margin-bottom: unset;
       position: relative;
       z-index: 2;
+      @include breakpoint-up(lg) {
+        font-size: 40px;
+      }
+      @include breakpoint-up(xl) {
+        font-size: 60px;
+      }
     }
     &-description {
-      font-size: 120px;
+      font-size: 40px;
       color: #4D4D64;
       text-align: center;
       text-transform: uppercase;
       margin-top: unset;
       margin-bottom: unset;
       position: absolute;
-      top: -30px;
+      top: -10px;
       left: 0;
       right: 0;
       z-index: 0;
       font-width: 600;
+      @include breakpoint-up(lg) {
+        top: -25px;
+        font-size: 80px;
+      }
+      @include breakpoint-up(xl) {
+        top: -30px;
+        font-size: 120px;
+      }
     }
   }
   .social-media {
-    margin-top: 75px;
+    margin-top: 50px;
+    @include breakpoint-up(md) {
+      margin-top: 75px;
+    }
   }
   &-copyright {
     width: 100%;
@@ -41,6 +62,11 @@
     justify-content: center;
     margin-top: 50px;
     color: #4D4D64;
+    flex-direction: column;
+    text-align: center;
+    @include breakpoint-up(md) {
+      flex-direction: row;
+    }
     p {
       margin-top: unset;
       margin-bottom: unset;
@@ -53,9 +79,21 @@
       margin-bottom: unset;
       display: flex;
       list-style: none;
+      flex-direction: column;
+      @include breakpoint-up(md) {
+        flex-direction: row;
+      }
       &-item {
         margin-left: 5px;
         margin-right: 5px;
+        span {
+          visibility: hidden;
+          display: none;
+          @include breakpoint-up(md) {
+            display: block;
+            visibility: visible;
+          }
+        }
       }
 
     }
