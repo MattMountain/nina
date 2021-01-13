@@ -9,7 +9,6 @@ export default function Hero (data)
     return (
         <section className="hero">
             <article className="hero-text">
-                <h1>Hello World</h1>
                 <h1 className="hero-text-headline">{element.heroText}</h1>
                 <p className="hero-text-subheadline">{element.heroSubheadline}</p>
             </article>
