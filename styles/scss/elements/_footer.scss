@@ -27,7 +27,7 @@
       }
     }
     &-description {
-      font-size: 40px;
+      font-size: 25px;
       color: #4D4D64;
       text-align: center;
       text-transform: uppercase;
@@ -39,6 +39,9 @@
       right: 0;
       z-index: 0;
       font-width: 600;
+      @include breakpoint-up(md) {
+        font-size: 40px;
+      }
       @include breakpoint-up(lg) {
         top: -25px;
         font-size: 80px;
