@@ -1,0 +1,6 @@
+.page {
+  @extend%space-top !optional;
+  &-content {
+    @extend%text !optional;
+  }
+}
