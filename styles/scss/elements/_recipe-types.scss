@@ -11,9 +11,10 @@
     margin-left: auto;
   }
   &-more {
-    margin-top: 50px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     .item {
       width: 250px;
       height: 250px;
@@ -21,28 +22,8 @@
       border-radius: 10px;
       display: flex;
       flex-direction: column;
-      margin-left: 20px;
-      margin-right: 20px;
       cursor: pointer;
-      &:first-of-type {
-        margin-left: auto;
-      }
-      &:nth-child(4) {
-        margin-right: auto;
-      }
-      &:nth-child(4n) {
-        page-break-after: always;
-        break-after: always;
-      }
-      &:nth-child(n + 5) {
-        margin-top: 40px;
-      }
-      &:nth-child(5) {
-        margin-left: auto;
-      }
-      &:last-of-type {
-        margin-right: auto;
-      }
+      margin-top: 40px;
       &-thumbnail {
         margin-top: auto;
         margin-left: auto;
