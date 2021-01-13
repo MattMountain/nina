@@ -1,0 +1,15 @@
+.social-media {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &-link {
+    margin-left: 50px;
+    margin-right: 50px;
+    &:first-of-type {
+      margin-left: unset;
+    }
+    &:last-of-type {
+      margin-right: unset;
+    }
+  }
+}

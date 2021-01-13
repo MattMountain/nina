@@ -4,7 +4,6 @@ import { reduceContent } from "./foodBlog";
 
 export default function LastVideos(data)
 {
-    console.log(data.data)
     const headline = { title: data.data.title.edges[0].node.name,
         description: data.data.title.edges[0].node.description }
 

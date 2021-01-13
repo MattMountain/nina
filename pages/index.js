@@ -4,6 +4,7 @@ import Hero from "../components/hero";
 import AboutMe from "../components/aboutMe";
 import FoodBlog from "../components/foodBlog";
 import LastVideos from "../components/lastVideos"
+import Footer from "../components/footer";
 
 import styles from '../styles/Home.module.css'
 
@@ -14,14 +15,16 @@ import { postsByName } from "../lib/posts";
 import { getRecipes } from "../functions/recipe";
 import { filterThumbnails } from "../functions/thumbnails";
 import { getAbout } from "../functions/about-me";
+import { getMenu } from "../lib/menu";
+import {getGeneral} from "../lib/general";
 
-export default function Home({ categories, hero, about, foodBlog, lastVideo }) {
-    console.log( lastVideo )
+export default function Home({ categories, hero, about, foodBlog, lastVideo, socialMedia, serviceMenu, generalSettings }) {
+    console.log( generalSettings )
 
   return (
     <div>
       <Head>
-        <title>Nina Müller - Food Blog</title>
+        <title>{ generalSettings.generalSettingsTitle } - { generalSettings.generalSettingsDescription }</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -37,9 +40,8 @@ export default function Home({ categories, hero, about, foodBlog, lastVideo }) {
           <LastVideos data={ lastVideo }></LastVideos>
       </main>
 
-      <footer className={styles.footer}>
+        <Footer data={ {social: socialMedia, serviceMenu: serviceMenu, general: generalSettings} }></Footer>
 
-      </footer>
     </div>
   )
 }
@@ -60,13 +62,22 @@ export async function getStaticProps({ preview = false })
 
     const hero = await getHero(preview)
 
+    const socialMedia = await getMenu('soical-media')
+
+    const serviceMenu = await getMenu('service-menu')
+
+    const generalSettings = await getGeneral()
+
     return {
         props: {
             categories: { categories: categories, thumbnails: categoriesThumbnails },
             hero: hero.hero,
             about: aboutMe,
             foodBlog: { content: foodBlog, title: foodBlogTitle },
-            lastVideo: { content: lastVideo, title: lastVideoTitle}
+            lastVideo: { content: lastVideo, title: lastVideoTitle},
+            socialMedia: socialMedia.edges[0].node.menuItems.edges,
+            serviceMenu: serviceMenu.edges[0].node.menuItems.edges,
+            generalSettings: generalSettings,
         },
     }
 }
