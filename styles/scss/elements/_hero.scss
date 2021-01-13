@@ -18,17 +18,32 @@
     &-headline {
       margin-top: auto;
       margin-bottom: 0;
-      font-size: 120px;
+      font-size: 40px;
       font-weight: 200;
       text-transform: uppercase;
+      @include breakpoint-up(sm) {
+        font-size: 60px;
+      }
+      @include breakpoint-up(md) {
+        font-size: 80px;
+      }
+      @include breakpoint-up(lg) {
+        font-size: 120px;
+      }
     }
     &-subheadline {
       margin-top: 0;
       margin-bottom: auto;
       text-align: center;
-      font-size: 40px;
+      font-size: 20px;
       font-weight: 400  ;
       text-transform: uppercase;
+      @include breakpoint-up(lg) {
+        font-size: 30px;
+      }
+      @include breakpoint-up(lg) {
+        font-size: 40px;
+      }
     }
   }
   &-image {
@@ -41,5 +56,11 @@
     bottom: 100px;
     left: 0;
     right: 0;
+    visibility: hidden;
+    display: none;
+    @include breakpoint-up(md) {
+      visibility: visible;
+      display: flex;
+    }
   }
 }
