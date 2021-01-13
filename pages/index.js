@@ -19,7 +19,6 @@ import { getMenu } from "../lib/menu";
 import {getGeneral} from "../lib/general";
 
 export default function Home({ categories, hero, about, foodBlog, lastVideo, socialMedia, serviceMenu, generalSettings }) {
-    console.log( generalSettings )
 
   return (
     <div>
@@ -29,7 +28,7 @@ export default function Home({ categories, hero, about, foodBlog, lastVideo, soc
       </Head>
 
       <main>
-          <Hero data={ hero }></Hero>
+          <Hero data={ { hero: hero, social: socialMedia } }></Hero>
 
           <RecipeTypes data={ categories } ></RecipeTypes>
 

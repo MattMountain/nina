@@ -1,7 +1,10 @@
+import SocialMedia from "./socialMedia";
+
 export default function Hero (data)
 {
-    const element = data.data;
-    const image = data.data.heroImage;
+    const socialMedia = data.data.social
+    const element = data.data.hero;
+    const image = data.data.hero.heroImage;
 
     return (
         <section className="hero">
@@ -14,6 +17,7 @@ export default function Hero (data)
                 src={image.mediaItemUrl}
                 alt={image.altText}
             />
+            <SocialMedia data={ socialMedia }></SocialMedia>
         </section>
     )
 }

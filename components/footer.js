@@ -8,8 +8,6 @@ export default function Footer (data)
     const general = data.data.general
     const currentYear = new Date().getFullYear()
 
-    console.log(serviceMenu)
-
     return (
         <footer className='container footer'>
             <section className='footer-title'>
