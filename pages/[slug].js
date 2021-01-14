@@ -17,7 +17,7 @@ export default function Page ({ content, generalSettings, socialMedia, serviceMe
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className='container page'>
-
+                <Headline data={ headline }></Headline>
                 <section className='page-content'>
                     <p>{ content.content }</p>
                 </section>
