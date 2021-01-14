@@ -11,15 +11,15 @@ export default function Footer (data)
     return (
         <footer className='container footer'>
             <section className='footer-title'>
-                <p className='footer-title-main'>{ general.generalSettingsTitle }</p>
-                <p className='footer-title-description'>{ general.generalSettingsDescription }</p>
+                <p className='footer-title-main'>{ general?.generalSettingsTitle }</p>
+                <p className='footer-title-description'>{ general?.generalSettingsDescription }</p>
             </section>
 
             <SocialMedia data={ socialMedia }></SocialMedia>
 
             <section className='footer-copyright'>
                 <p className='footer-copyright-year'>{ currentYear }</p>
-                <p className='footer-copyright-title'>{ general.generalSettingsTitle }</p>
+                <p className='footer-copyright-title'>{ general?.generalSettingsTitle }</p>
                 <ul className='footer-copyright-menu'>
                     { Object.keys(serviceMenu).length > 0 ? (
                         Object.keys(serviceMenu).map( (key) =>
