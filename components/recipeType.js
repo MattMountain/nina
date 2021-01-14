@@ -6,8 +6,6 @@ export default function RecipeType (data)
     const element = data.data
     const link = `recipes/${ element.slug }`
 
-    console.log(element)
-
     return (
         <Link
             href={ link }
