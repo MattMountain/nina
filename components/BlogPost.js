@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function BlogPost(data)
 {
-    const link = { link: ` recipes/recipe/${ data.data?.node?.slug }`, title: 'Rezept', type: 'page' }
+    const link = { link: `/recipes/recipe/${ data.data?.node?.slug }`, title: 'Rezept', type: 'page' }
     const post = data.data?.node?.foodPost
     const youtube = { link: post?.youtubeLink, title: 'Zum Video', type: 'extern'}
 

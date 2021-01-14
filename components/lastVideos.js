@@ -15,7 +15,7 @@ export default function LastVideos(data)
             <article className='last-videos-content'>
                 { Object.keys( content ).length > 0 ? (
                     Object.keys( content ).map( (key ) =>
-                        <VideoPost data={ content[key] }></VideoPost>
+                        <VideoPost key={ key } data={ content[key] }></VideoPost>
                     ) ) : (<span>No Blog Post</span>)
                 }
             </article>
