@@ -15,7 +15,7 @@ export default function FoodBlog (data)
             <article className='food-blog-content'>
                 { Object.keys( content ).length > 0 ? (
                     Object.keys( content ).map( (key)  =>
-                        <BlogPost data={ content[key] }></BlogPost>
+                        <BlogPost key={ key } data={ content[key] }></BlogPost>
                 ) ) : (<span>No Blog Post</span>) }
                 { (contentLength) => {
                     if (contentLength > 2) {
