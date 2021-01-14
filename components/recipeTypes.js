@@ -14,7 +14,7 @@ export default function RecipeTypes (data) {
             <article className="recipe-types-more">
                 { Object.keys(children).length > 0 ? (
                     Object.keys(children).map((key) =>
-                        <RecipeType data={ children[key] }></RecipeType>
+                        <RecipeType key={ key } data={ children[key] }></RecipeType>
                     )
                 ) : (<span>No Categorie </span>) }
             </article>

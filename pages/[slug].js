@@ -19,7 +19,6 @@ export default function Page ({ content, generalSettings, socialMedia, serviceMe
             <main className='container page'>
                 <Headline data={ headline }></Headline>
                 <section className='page-content'>
-                    <p>Hello World</p>
                     <p>{ content.content }</p>
                 </section>
             </main>
@@ -49,10 +48,10 @@ export async function getStaticProps({ params, preview = false, previewData })
 }
 
 export async function getStaticPaths() {
-    const allPosts = await getAllPagesWithSlug()
+    const allPages = await getAllPagesWithSlug()
 
     return {
-        paths: allPosts.edges.map(({ node }) => `/${node.slug}`) || [],
+        paths: allPages.edges.map(({ node }) => `/${node.slug}`) || [],
         fallback: true,
     }
 }

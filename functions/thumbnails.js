@@ -7,7 +7,7 @@ export async function filterThumbnails(categories)
 
     children.forEach(async (item) => {
         const name = item.node.name ;
-        thumbnails.push({ name: name, thumbnail: await getThumbnails(item.node.name)})
+        thumbnails.push({ name: name, thumbnail: await getThumbnails(item.node.name) })
     })
     return thumbnails
 }
