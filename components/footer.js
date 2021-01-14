@@ -20,15 +20,18 @@ export default function Footer (data)
             <section className='footer-copyright'>
                 <p className='footer-copyright-year'>{ currentYear }</p>
                 <p className='footer-copyright-title'>{ general?.generalSettingsTitle }</p>
-                <ul className='footer-copyright-menu'>
+                { serviceMenu &&
+                    <ul className='footer-copyright-menu'>
                     { Object.keys(serviceMenu).length > 0 ? (
                         Object.keys(serviceMenu).map( (key) =>
-                        <li className='footer-copyright-menu-item'>
-                            <Link href={ serviceMenu[key].node.path }>
-                                <a><span>|</span> { serviceMenu[key].node.label }</a>
-                            </Link>
-                        </li>)) : (<li></li>)}
-                </ul>
+                            <li key={ key } className='footer-copyright-menu-item'>
+                                <Link href={ serviceMenu[key].node.path }>
+                                    <a><span>|</span> { serviceMenu[key].node.label }</a>
+                                </Link>
+                            </li>)) : (<li></li>)}
+                    </ul>
+                }
+
             </section>
         </footer>
     )
