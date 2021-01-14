@@ -8,12 +8,12 @@ import Footer from "../components/footer";
 export default function Page ({ content, generalSettings, socialMedia, serviceMenu })
 {
 
-    const headline = { title: content.title, description: '' }
+    const headline = { title: content?.title, description: '' }
 
     return (
         <>
             <Head>
-                <title>{ generalSettings.generalSettingsTitle } - { content.title }</title>
+                <title>{ generalSettings.generalSettingsTitle } - { content?.title }</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className='container page'>
