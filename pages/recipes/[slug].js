@@ -10,7 +10,6 @@ import Footer from "../../components/footer";
 export default function Recipes ({ content, posts, generalSettings, socialMedia, serviceMenu })
 {
     const headline = { title: content?.node?.name, description: ( content?.node?.description ? content.description : '')}
-    console.log(posts)
     return (
         <>
             <Head>
