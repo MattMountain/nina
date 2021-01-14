@@ -8,8 +8,6 @@ export default function BlogPost(data)
     const youtubeLink = (post.youtubeLink ? (post.youtubeLink) : '')
     const youtube = { link: youtubeLink, title: 'Zum Video', type: 'extern'}
 
-    console.log(data)
-
     return (
         <div className='food-post'>
             <div className='food-post-image'>

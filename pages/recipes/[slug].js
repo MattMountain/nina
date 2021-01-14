@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import {getPosts} from "../../lib/posts";
-import {categoryBySlug} from "../../lib/categories";
+import {categoryBySlug, categoryChildrenBySlug} from "../../lib/categories";
 import Headline from "../../components/headline";
 import BlogPost from "../../components/BlogPost";
 import {getGeneral} from "../../lib/general";
@@ -56,10 +56,10 @@ export async function getStaticProps({ params, preview = false, previewData })
 }
 
 export async function getStaticPaths() {
-    const allPosts = await getPosts()
-
+    const allPosts = await categoryChildrenBySlug('rezepte-typen')
+    console.log(allPosts)
     return {
-        paths: allPosts.edges.map(({ node }) => `/recipes/${node.slug}`) || [],
+        paths: allPosts.edges[0].node.children.edges.map(({ node }) => `/recipes/${node.slug}`) || [],
         fallback: true,
     }
 }
