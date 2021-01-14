@@ -46,11 +46,11 @@ export async function getStaticProps({ params, preview = false, previewData })
 
     return {
         props: {
-            content: content.edges[0],
-            posts: content.edges[0].node.posts.edges,
+            content: content?.edges[0],
+            posts: content?.edges[0]?.node?.posts?.edges,
             generalSettings: generalSettings,
-            socialMedia: socialMedia.edges[0].node.menuItems.edges,
-            serviceMenu: serviceMenu.edges[0].node.menuItems.edges,
+            socialMedia: socialMedia?.edges[0]?.node?.menuItems?.edges,
+            serviceMenu: serviceMenu?.edges[0]?.node?.menuItems?.edges,
         }
     }
 }
