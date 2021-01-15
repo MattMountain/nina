@@ -1,5 +1,8 @@
 .recipe-types {
   @extend%space-top !optional;
+  @include breakpoint-up(xxl) {
+    width: 1190px;
+  }
   &-headline {
     @extend%headline !optional;
   }

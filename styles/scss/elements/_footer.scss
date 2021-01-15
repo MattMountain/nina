@@ -87,13 +87,25 @@
         flex-direction: row;
       }
       &-item {
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-right: auto;
+        margin-left: auto;
         display: flex;
-        span {
-          visibility: hidden;
-          display: none;
-          @include breakpoint-up(md) {
+        @include breakpoint-up(md) {
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+        &-link {
+          display: flex;
+          span {
+            margin-right: 5px;
+            visibility: hidden;
+            display: none;
+            @include breakpoint-up(md) {
+              display: block;
+              visibility: visible;
+            }
+          }
+          .label {
             display: block;
             visibility: visible;
           }

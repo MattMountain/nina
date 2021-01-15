@@ -26,7 +26,10 @@ export default function Footer (data)
                         Object.keys(serviceMenu).map( (key) =>
                             <li key={ key } className='footer-copyright-menu-item'>
                                 <Link href={ serviceMenu[key].node.path }>
-                                    <a><span>|</span> { serviceMenu[key].node.label }</a>
+                                    <a className='footer-copyright-menu-item-link'>
+                                        <span>|</span>
+                                        <span className='label'>{ serviceMenu[key].node.label }</span>
+                                    </a>
                                 </Link>
                             </li>)) : (<li></li>)}
                     </ul>
