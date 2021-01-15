@@ -6,17 +6,25 @@ import BlogPost from "../../components/BlogPost";
 import {getGeneral} from "../../lib/general";
 import {getMenu} from "../../lib/menu";
 import Footer from "../../components/footer";
+import Menu from "../../components/menu";
 
-export default function Recipes ({ content, posts, generalSettings, socialMedia, serviceMenu })
+export default function Recipes ({ content, posts, generalSettings, socialMedia, serviceMenu, primaryMenu })
 {
     const headline = { title: content?.node?.name, description: ( content?.node?.description ? content.description : '')}
+
     return (
         <>
             <Head>
                 <title>{ generalSettings?.generalSettingsTitle } - { content?.title }</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
+            <header className='header'>
+                <Menu data={ primaryMenu }></Menu>
+            </header>
+
             <main className='container recipes food-blog'>
+
                 <Headline data={ headline }></Headline>
                 <section className='food-blog-content'>
                     { posts ?
@@ -27,6 +35,7 @@ export default function Recipes ({ content, posts, generalSettings, socialMedia,
                     }
                 </section>
             </main>
+
             <Footer data={ {social: socialMedia, serviceMenu: serviceMenu, general: generalSettings} }></Footer>
         </>
 
@@ -43,6 +52,8 @@ export async function getStaticProps({ params, preview = false, previewData })
 
     const serviceMenu = await getMenu('service-menu')
 
+    const primaryMenu = await getMenu('hauptmenu')
+
     return {
         props: {
             content: content?.edges[0],
@@ -50,6 +61,7 @@ export async function getStaticProps({ params, preview = false, previewData })
             generalSettings: generalSettings,
             socialMedia: socialMedia?.edges[0]?.node?.menuItems?.edges,
             serviceMenu: serviceMenu?.edges[0]?.node?.menuItems?.edges,
+            primaryMenu: primaryMenu?.edges[0]?.node?.menuItems?.edges,
         }
     }
 }

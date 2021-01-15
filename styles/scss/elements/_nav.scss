@@ -1,0 +1,43 @@
+.nav {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+
+  background-color: #f0f0f0;
+  height: 75px;
+  font-size: 30px;
+  opacity: 0.8;
+  &-content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    list-style: none;
+    margin: unset;
+    &-item {
+      line-height: 75px;
+      text-transform: uppercase;
+      font-weight: 300;
+      position: relative;
+      &:hover {
+        &:after {
+          width: 100%;
+
+        }
+      }
+      &:after {
+        content: '';
+        width: 0;
+        transition: all 0.3s ease-in-out;
+        height: 3px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: 15px;
+        z-index: 11;
+        position: absolute;
+        background-color: $primary;
+      }
+    }
+  }
+}

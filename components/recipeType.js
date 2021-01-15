@@ -18,7 +18,7 @@ export default function RecipeType (data)
                     title={ element.name }
                 />
                 <p className='item-headline'>{ element.name }</p>
-                <p className='item-posts'>{ element.posts }Rezepte</p>
+                <p className='item-posts'>{ element.posts } Rezepte</p>
             </div>
 
         </Link>

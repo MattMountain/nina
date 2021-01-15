@@ -4,8 +4,9 @@ import { getGeneral } from "../lib/general";
 import Headline from "../components/headline";
 import {getMenu} from "../lib/menu";
 import Footer from "../components/footer";
+import Menu from "../components/menu";
 
-export default function Page ({ content, generalSettings, socialMedia, serviceMenu })
+export default function Page ({ content, generalSettings, socialMedia, serviceMenu, primaryMenu })
 {
 
     const headline = { title: content?.title, description: '' }
@@ -16,12 +17,18 @@ export default function Page ({ content, generalSettings, socialMedia, serviceMe
                 <title>{ generalSettings?.generalSettingsTitle } - { content?.title }</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
+            <header className='header'>
+                <Menu data={ primaryMenu }></Menu>
+            </header>
+
             <main className='container page'>
                 <Headline data={ headline }></Headline>
                 <section className='page-content'>
                     <p>{ content?.content }</p>
                 </section>
             </main>
+
             <Footer data={ {social: socialMedia, serviceMenu: serviceMenu, general: generalSettings} }></Footer>
         </>
     )
@@ -37,12 +44,15 @@ export async function getStaticProps({ params, preview = false, previewData })
 
     const serviceMenu = await getMenu('service-menu')
 
+    const primaryMenu = await getMenu('hauptmenu')
+
     return {
         props: {
             content: content,
             generalSettings: generalSettings,
             socialMedia: socialMedia.edges[0].node.menuItems.edges,
             serviceMenu: serviceMenu.edges[0].node.menuItems.edges,
+            primaryMenu: primaryMenu?.edges[0]?.node?.menuItems?.edges,
         }
     }
 }

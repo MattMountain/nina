@@ -17,8 +17,9 @@ import { filterThumbnails } from "../functions/thumbnails";
 import { getAbout } from "../functions/about-me";
 import { getMenu } from "../lib/menu";
 import {getGeneral} from "../lib/general";
+import Menu from "../components/menu";
 
-export default function Home({ categories, hero, about, foodBlog, lastVideo, socialMedia, serviceMenu, generalSettings }) {
+export default function Home({ categories, hero, about, foodBlog, lastVideo, socialMedia, serviceMenu, generalSettings, primaryMenu }) {
 
   return (
     <div>
@@ -27,7 +28,12 @@ export default function Home({ categories, hero, about, foodBlog, lastVideo, soc
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <header>
+         <Menu data={ primaryMenu }></Menu>
+      </header>
+
       <main>
+
           <Hero data={ { hero: hero, social: socialMedia } }></Hero>
 
           <RecipeTypes data={ categories } ></RecipeTypes>
@@ -67,6 +73,8 @@ export async function getStaticProps({ preview = false })
 
     const generalSettings = await getGeneral()
 
+    const primaryMenu = await getMenu('hauptmenu')
+
     return {
         props: {
             categories: { categories: categories, thumbnails: categoriesThumbnails },
@@ -74,9 +82,10 @@ export async function getStaticProps({ preview = false })
             about: aboutMe,
             foodBlog: { content: foodBlog, title: foodBlogTitle },
             lastVideo: { content: lastVideo, title: lastVideoTitle},
-            socialMedia: socialMedia.edges[0].node.menuItems.edges,
-            serviceMenu: serviceMenu.edges[0].node.menuItems.edges,
+            socialMedia: socialMedia?.edges[0]?.node?.menuItems?.edges,
+            serviceMenu: serviceMenu?.edges[0]?.node?.menuItems?.edges,
             generalSettings: generalSettings,
+            primaryMenu: primaryMenu?.edges[0]?.node?.menuItems?.edges,
         },
     }
 }

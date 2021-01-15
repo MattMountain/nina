@@ -3,4 +3,12 @@
   &-content {
     @extend%text !optional;
   }
+
+}
+
+.header {
+  position: relative;
+  .nav {
+    top: 0;
+  }
 }
