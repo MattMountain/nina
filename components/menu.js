@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { Sling as Hamburger } from 'hamburger-react'
+
 export default function Menu ( data )
 {
     const menu = data.data
-    console.log( menu )
+
     return (
         <nav className='nav container'>
             <ul className='nav-content'>
@@ -17,7 +19,15 @@ export default function Menu ( data )
                     ) : ( <span>No Menu</span> )
                 }
             </ul>
-
+            <Hamburger
+                onToggle={ toggleBurger }
+            ></Hamburger>
         </nav>
     )
+}
+
+function toggleBurger() {
+    console.log('toggle Burger')
+    document.querySelector('.nav-content').classList.toggle('open')
+    document.querySelector('body').classList.toggle('scroll-disable')
 }
