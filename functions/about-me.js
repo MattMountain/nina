@@ -12,5 +12,9 @@ export async function getAbout()
 export function getIdPosts(posts, title)
 {
     const idx = posts?.findIndex( (post) => post?.node?.title === title)
+    if (!idx)
+    {
+        return posts["cG9zdDo0Ng=="]?.node?.id
+    }
     return posts[idx]?.node?.id
 }
