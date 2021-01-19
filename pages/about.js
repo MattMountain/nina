@@ -8,7 +8,7 @@ import Menu from "../components/menu";
 
 export default function About({ about, generalSettings, socialMedia, serviceMenu, primaryMenu })
 {
-    console.log(about)
+
     return (
         <>
             <Head>
