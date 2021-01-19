@@ -27,7 +27,7 @@ export default function Menu ( data )
 }
 
 function toggleBurger() {
-    console.log('toggle Burger')
+
     document.querySelector('.nav-content').classList.toggle('open')
     document.querySelector('body').classList.toggle('scroll-disable')
 }

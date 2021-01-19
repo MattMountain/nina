@@ -16,7 +16,7 @@ import { getRecipes } from "../functions/recipe";
 import { filterThumbnails } from "../functions/thumbnails";
 import { getAbout } from "../functions/about-me";
 import { getMenu } from "../lib/menu";
-import {getGeneral} from "../lib/general";
+import { getGeneral } from "../lib/general";
 import Menu from "../components/menu";
 
 export default function Home({ categories, hero, about, foodBlog, lastVideo, socialMedia, serviceMenu, generalSettings, primaryMenu }) {
@@ -43,6 +43,7 @@ export default function Home({ categories, hero, about, foodBlog, lastVideo, soc
           <FoodBlog data={ foodBlog }></FoodBlog>
 
           <LastVideos data={ lastVideo }></LastVideos>
+
       </main>
 
         <Footer data={ {social: socialMedia, serviceMenu: serviceMenu, general: generalSettings} }></Footer>
