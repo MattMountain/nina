@@ -5,7 +5,7 @@ export default function BlogPost(data)
 {
     const link = { link: `/recipes/recipe/${ data.data?.node?.slug }`, title: 'Rezept', type: 'page' }
     const post = data.data?.node?.foodPost
-    const youtubeLink = (post.youtubeLink ? (post.youtubeLink) : '')
+    const youtubeLink = (post?.youtubeLink ? (post?.youtubeLink) : '')
     const youtube = { link: youtubeLink, title: 'Zum Video', type: 'extern'}
 
     return (
