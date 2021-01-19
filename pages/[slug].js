@@ -61,7 +61,7 @@ export async function getStaticPaths() {
     const allPages = await getAllPagesWithSlug()
 
     return {
-        paths: allPages.edges.map(({ node }) => `/${node.slug}`) || [],
+        paths: allPages?.edges?.map(({ node }) => `/${node?.slug}`) || [],
         fallback: true,
     }
 }
