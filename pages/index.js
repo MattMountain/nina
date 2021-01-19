@@ -8,7 +8,7 @@ import Footer from "../components/footer";
 
 import styles from '../styles/Home.module.css'
 
-import { getCategories, categoryByName } from "../lib/categories";
+import {getCategories, categoryByName, categoryBySlug} from "../lib/categories";
 import { getHero } from "../lib/hero";
 import {getPostBySlug, postsByName} from "../lib/posts";
 
@@ -54,8 +54,8 @@ export default function Home({ categories, hero, about, foodBlog, lastVideo, soc
 export async function getStaticProps({ preview = false })
 {
     const dataCategories = await getCategories(preview)
-    const categories = getRecipes(dataCategories?.edges)
-    const categoriesThumbnails = await filterThumbnails(categories)
+    const categories = await categoryBySlug('rezepte-typen')
+    const categoriesThumbnails = await filterThumbnails(categories?.edges[0])
 
     const aboutMe = await getPostBySlug('uber-mich')
 

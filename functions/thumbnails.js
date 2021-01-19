@@ -2,7 +2,7 @@ import { getThumbnails } from "../lib/thumbnails";
 
 export async function filterThumbnails(categories)
 {
-    const children = categories.node.children.edges;
+    const children = categories?.node?.children?.edges;
     let thumbnails = new Array();
 
     children.forEach(async (item) => {

@@ -4,9 +4,9 @@ import Headline from "./headline";
 
 export default function RecipeTypes (data) {
 
-    let children = data?.data?.categories?.node?.children?.edges
+    let children = data?.data?.categories?.edges[0]?.node?.children?.edges
     children = addThumbnails(children, data?.data?.thumbnails)
-    const headline = { title: data?.data?.categories?.node?.name, description: data?.data?.categories?.node?.description }
+    const headline = { title: data?.data?.categories?.edges[0]?.node?.name, description: data?.data?.categories?.edges[0]?.node?.description }
 
     return (
         <section className="container recipe-types">
