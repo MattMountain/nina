@@ -1,4 +1,3 @@
-import {getAbout} from "../functions/about-me";
 import Head from "next/head";
 import Footer from "../components/footer";
 import AboutMe from "../components/aboutMe";

@@ -14,7 +14,6 @@ import {getPostBySlug, postsByName} from "../lib/posts";
 
 import { getRecipes } from "../functions/recipe";
 import { filterThumbnails } from "../functions/thumbnails";
-import { getAbout } from "../functions/about-me";
 import { getMenu } from "../lib/menu";
 import { getGeneral } from "../lib/general";
 import Menu from "../components/menu";
