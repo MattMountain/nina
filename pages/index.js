@@ -55,7 +55,7 @@ export default function Home({ categories, hero, about, foodBlog, lastVideo, soc
 export async function getStaticProps({ preview = false })
 {
     const dataCategories = await getCategories(preview)
-    const categories = getRecipes(dataCategories.edges)
+    const categories = getRecipes(dataCategories?.edges)
     const categoriesThumbnails = await filterThumbnails(categories)
 
     const aboutMe = await getAbout()
