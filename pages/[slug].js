@@ -36,7 +36,7 @@ export default function Page ({ content, generalSettings, socialMedia, serviceMe
 
 export async function getStaticProps({ params, preview = false, previewData })
 {
-    const content = await getPageByURI( params.slug )
+    const content = await getPageByURI( params?.slug )
 
     const generalSettings = await getGeneral()
 
