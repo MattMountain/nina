@@ -3,7 +3,7 @@ import { Sling as Hamburger } from 'hamburger-react'
 
 export default function Menu ( data )
 {
-    const menu = data.data
+    const menu = data?.data
 
     return (
         <nav className='nav container'>
