@@ -70,7 +70,7 @@ export async function getStaticPaths() {
     const allPosts = await categoryChildrenBySlug('rezepte-typen')
     console.log(allPosts)
     return {
-        paths: allPosts.edges[0].node.children.edges.map(({ node }) => `/recipes/${node.slug}`) || [],
+        paths: allPosts?.edges[0]?.node?.children?.edges?.map(({ node }) => `/recipes/${node?.slug}`) || [],
         fallback: true,
     }
 }
