@@ -5,6 +5,7 @@ import AboutMe from "../components/aboutMe";
 import {getMenu} from "../lib/menu";
 import {getGeneral} from "../lib/general";
 import Menu from "../components/menu";
+import {getPostBySlug} from "../lib/posts";
 
 export default function About({ about, generalSettings, socialMedia, serviceMenu, primaryMenu })
 {
@@ -31,7 +32,7 @@ export default function About({ about, generalSettings, socialMedia, serviceMenu
 
 export async function getStaticProps({ params, preview = false, previewData })
 {
-    const aboutMe = await getAbout()
+    const aboutMe = await await getPostBySlug('uber-mich')
 
     const socialMedia = await getMenu('soical-media')
 

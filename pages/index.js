@@ -10,7 +10,7 @@ import styles from '../styles/Home.module.css'
 
 import { getCategories, categoryByName } from "../lib/categories";
 import { getHero } from "../lib/hero";
-import { postsByName } from "../lib/posts";
+import {getPostBySlug, postsByName} from "../lib/posts";
 
 import { getRecipes } from "../functions/recipe";
 import { filterThumbnails } from "../functions/thumbnails";
@@ -58,7 +58,7 @@ export async function getStaticProps({ preview = false })
     const categories = getRecipes(dataCategories?.edges)
     const categoriesThumbnails = await filterThumbnails(categories)
 
-    const aboutMe = await getAbout()
+    const aboutMe = await getPostBySlug('uber-mich')
 
     const foodBlog = await postsByName('Food Blog')
     const foodBlogTitle = await categoryByName('Food Blog')
