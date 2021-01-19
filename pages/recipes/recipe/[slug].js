@@ -6,7 +6,7 @@ import Footer from "../../../components/footer";
 import Headline from "../../../components/headline";
 import Menu from "../../../components/menu";
 
-export default function Recipe ({ data, post, generalSettings, socialMedia, serviceMenu, primaryMenu })
+export default function Recipe ({ post, generalSettings, socialMedia, serviceMenu, primaryMenu })
 {
     const headline = { title: post?.title, description: ''}
 
@@ -34,7 +34,7 @@ export default function Recipe ({ data, post, generalSettings, socialMedia, serv
 
 export async function getStaticProps({ params, preview = false, previewData })
 {
-    const post = await getPostBySlug( params.slug )
+    const post = await getPostBySlug( params?.slug )
 
     const generalSettings = await getGeneral()
 
@@ -46,7 +46,6 @@ export async function getStaticProps({ params, preview = false, previewData })
 
     return {
         props: {
-            data: 'hello world',
             post: post,
             generalSettings: generalSettings,
             socialMedia: socialMedia?.edges[0]?.node?.menuItems?.edges,
