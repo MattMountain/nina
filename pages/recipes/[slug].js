@@ -44,7 +44,7 @@ export default function Recipes ({ content, posts, generalSettings, socialMedia,
 
 export async function getStaticProps({ params, preview = false, previewData })
 {
-    const content = await categoryBySlug(params.slug)
+    const content = await categoryBySlug(params?.slug)
 
     const generalSettings = await getGeneral()
 
@@ -68,7 +68,7 @@ export async function getStaticProps({ params, preview = false, previewData })
 
 export async function getStaticPaths() {
     const allPosts = await categoryChildrenBySlug('rezepte-typen')
-    console.log(allPosts)
+
     return {
         paths: allPosts?.edges[0]?.node?.children?.edges?.map(({ node }) => `/recipes/${node?.slug}`) || [],
         fallback: true,
