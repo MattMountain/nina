@@ -5,6 +5,7 @@ import Head from "next/head";
 import Footer from "../../../components/footer";
 import Headline from "../../../components/headline";
 import Menu from "../../../components/menu";
+import Favicon from "../../../components/favicon";
 
 export default function Recipe ({ post, generalSettings, socialMedia, serviceMenu, primaryMenu })
 {
@@ -14,7 +15,7 @@ export default function Recipe ({ post, generalSettings, socialMedia, serviceMen
         <>
             <Head>
                 <title>{ generalSettings?.generalSettingsTitle } - { post?.title }</title>
-                <link rel="icon" href="/favicon.ico" />
+                <Favicon />
             </Head>
 
             <header className='header'>

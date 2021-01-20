@@ -5,6 +5,7 @@ import {getMenu} from "../lib/menu";
 import {getGeneral} from "../lib/general";
 import Menu from "../components/menu";
 import {getPostBySlug} from "../lib/posts";
+import Favicon from "../components/favicon";
 
 export default function About({ about, generalSettings, socialMedia, serviceMenu, primaryMenu })
 {
@@ -13,7 +14,7 @@ export default function About({ about, generalSettings, socialMedia, serviceMenu
         <>
             <Head>
                 <title>{ generalSettings?.generalSettingsTitle } - About</title>
-                <link rel="icon" href="/favicon.ico" />
+                <Favicon />
             </Head>
 
             <header className='header'>
@@ -29,7 +30,7 @@ export default function About({ about, generalSettings, socialMedia, serviceMenu
     )
 }
 
-export async function getStaticProps({ params, preview = false, previewData })
+export async function getStaticProps({ previewg = false })
 {
     const aboutMe = await await getPostBySlug('uber-mich')
 

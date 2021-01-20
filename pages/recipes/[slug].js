@@ -7,6 +7,7 @@ import {getGeneral} from "../../lib/general";
 import {getMenu} from "../../lib/menu";
 import Footer from "../../components/footer";
 import Menu from "../../components/menu";
+import Favicon from "../../components/favicon";
 
 export default function Recipes ({ content, posts, generalSettings, socialMedia, serviceMenu, primaryMenu })
 {
@@ -16,7 +17,7 @@ export default function Recipes ({ content, posts, generalSettings, socialMedia,
         <>
             <Head>
                 <title>{ generalSettings?.generalSettingsTitle } - { content?.title }</title>
-                <link rel="icon" href="/favicon.ico" />
+                <Favicon />
             </Head>
 
             <header className='header'>

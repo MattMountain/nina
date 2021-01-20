@@ -12,11 +12,11 @@ import {getCategories, categoryByName, categoryBySlug} from "../lib/categories";
 import { getHero } from "../lib/hero";
 import {getPostBySlug, postsByName} from "../lib/posts";
 
-import { getRecipes } from "../functions/recipe";
 import { filterThumbnails } from "../functions/thumbnails";
 import { getMenu } from "../lib/menu";
 import { getGeneral } from "../lib/general";
 import Menu from "../components/menu";
+import Favicon from "../components/favicon";
 
 export default function Home({ categories, hero, about, foodBlog, lastVideo, socialMedia, serviceMenu, generalSettings, primaryMenu }) {
 
@@ -24,7 +24,7 @@ export default function Home({ categories, hero, about, foodBlog, lastVideo, soc
     <div>
       <Head>
         <title>{ generalSettings.generalSettingsTitle } - { generalSettings.generalSettingsDescription }</title>
-        <link rel="icon" href="/favicon.ico" />
+        <Favicon />
       </Head>
 
       <header>

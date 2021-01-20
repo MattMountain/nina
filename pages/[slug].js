@@ -5,6 +5,7 @@ import Headline from "../components/headline";
 import {getMenu} from "../lib/menu";
 import Footer from "../components/footer";
 import Menu from "../components/menu";
+import Favicon from "../components/favicon";
 
 export default function Page ({ content, generalSettings, socialMedia, serviceMenu, primaryMenu })
 {
@@ -15,7 +16,7 @@ export default function Page ({ content, generalSettings, socialMedia, serviceMe
         <>
             <Head>
                 <title>{ generalSettings?.generalSettingsTitle } - { content?.title }</title>
-                <link rel="icon" href="/favicon.ico" />
+                <Favicon />
             </Head>
 
             <header className='header'>
