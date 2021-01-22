@@ -16,6 +16,10 @@ yarn build
 yarn start
 ```
 
+## Deployment
+
+after Pushing to the master it will automatically deploy to vercel and herroku via webhooks
+
 ## Folder Structure
 
 ### React Component
